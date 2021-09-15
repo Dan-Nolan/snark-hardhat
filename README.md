@@ -1,15 +1,24 @@
-# Basic Sample Hardhat Project
+# Hardhat ZK Snark
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This is a simple demonstration of ZK Snark Circuits using [Circom](https://docs.circom.io/) and [SnarkJS](https://github.com/iden3/snarkjs). It simplifies [this great example](https://github.com/iden3/circom/blob/master/TUTORIAL.md) into a few easy steps with Hardhat.
 
-Try running some of the following tasks:
+To begin with you will need to install these two libraries globally:
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
+```
+npm install -g circom
+npm install -g snarkjs
+```
+
+Next, you can generate the solidity verifier contract and the proof by running:
+
+```
+npm run generate
+```
+
+This will create a new contract in the `contracts/` folder called `verifier.sol` and it will also create a `proof` file in the `test/` folder.
+
+Finally, to test that you can verify your proof of the circuit, you can run:
+
+```
 npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
 ```
